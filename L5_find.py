@@ -23,13 +23,18 @@ user_find = int(input("Введіть число, яке будемо шукат
 # Отримуємо список з індексами знайденого числа
 list_index = find(user_find)
 
-# Формування строки для виводу в термінал, на випадок якщо число повторюється
-str_terminal = "Число, яке ви шукаєте, знаходиться у списку під номером "
-s1 = 0
-for i in list_index:
-    if s1 == 0:
-        str_terminal = str_terminal + str(list_index[s1])
-    else:
-        str_terminal = str_terminal + " та під номером " + str(list_index[s1])
-    s1 += 1
+# Формування строки для виводу в термінал, на випадок якщо число повторюється, або не знайдено
+if len(list_index) != 0:
+    str_terminal = "Число, яке ви шукаєте, знаходиться у списку під номером "
+    s1 = 0
+    for i in list_index:
+        if s1 == 0:
+            str_terminal = str_terminal + str(list_index[s1])
+        else:
+            str_terminal = str_terminal + " та під номером " + str(list_index[s1])
+        s1 += 1
+else:
+    str_terminal = "Число не знайдено!"
+
 print(str_terminal)
+print("А список був такий ", ls)
